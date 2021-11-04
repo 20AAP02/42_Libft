@@ -10,11 +10,3 @@ t_list *ft_lstnew(void *content)
     new->next = NULL;
     return (new);
 }
-
-/*int main()
-{
-    int a = 7456356;
-    t_list *lst = ft_lstnew(&a);
-    printf("%i", *(int *)(lst->content));
-    free(lst);
-}*/
