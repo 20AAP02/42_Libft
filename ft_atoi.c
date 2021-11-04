@@ -1,9 +1,9 @@
 #include "libft.h"
 
-int ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
-	int number;
-	int sign;
+	int	number;
+	int	sign;
 
 	sign = 1;
 	number = 0;
@@ -22,10 +22,3 @@ int ft_atoi(const char *str)
 	}
 	return (number * sign);
 }
-
-/*int main()
-{
-	char str[100] = "   		-2147483648";
-	printf("%d\n%d\n", ft_atoi(str), atoi(str));
-	return (0);
-}*/
