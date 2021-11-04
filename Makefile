@@ -16,11 +16,20 @@ SRCS	= ft_isascii.c ft_isprint.c ft_isalpha.c ft_isdigit.c ft_isalnum.c \
 					ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_strmapi.c
 OBJS	= $(SRCS:.c=.o)
 
+BONUS_S	= ft_lstsize.c ft_lstlast.c ft_lstadd_front.c ft_lstadd_back.c \
+			ft_lstnew.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c 
+BONUS_O	= $(BONUS_S:.c=.o)
+
 all: 		$(NAME)
 
 $(NAME): 	$(OBJS) $(INCLUDE)
 					$(LIB1) $(NAME) $(OBJS)
 					$(LIB2) $(NAME)
+
+bonus:		$(NAME) $(BONUS_O)
+			$(LIB1) $(NAME) $(BONUS_O)
+			$(LIB2) $(NAME)
+
 .c.o:
 					$(CC) $(CFLAGS) -I$(INCLUDE) -c $< -o $(<:.c=.o)
 clean:
@@ -29,3 +38,7 @@ fclean: 	clean
 					$(RM) $(NAME)
 
 re: 				fclean all
+
+rebonus:	fclean bonus
+
+.PHONY:		all clean fclean re bonus rebonus

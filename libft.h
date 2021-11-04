@@ -1,5 +1,5 @@
 #ifndef LIBFT_H
-#define LIBFT_H
+# define LIBFT_H
 
 #include <stdio.h>  // printf
 #include <stdlib.h> // size_t
