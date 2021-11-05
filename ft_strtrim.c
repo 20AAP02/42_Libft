@@ -1,32 +1,68 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amaria-m <amaria-m@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/05 11:23:14 by amaria-m          #+#    #+#             */
+/*   Updated: 2021/11/05 11:23:14 by amaria-m         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-char *ft_strtrim(char const *s1, char const *set)
+static int	is_set(char c, char const *set)
 {
-    char *s1_trimed;
-    int i;
-    int j;
-    int k;
-    i = 0;
-    while (s1[i] == set[i])
-        i++;
-    j = 0;
-    while (s1[j])
-        j++;
-    k = 0;
-    while (set[k])
-        k++;
-    while (s1[j - 1] == set[k-- - 1])
-        j--;
-    s1_trimed = malloc(j - i + 1);
-    k = 0;
-    while (i < j)
-        s1_trimed[k++] = s1[i++];
-    s1_trimed[k] = 0;
-    return (s1_trimed);
+	int	index;
+
+	index = 0;
+	while (set[index] != '\0')
+	{
+		if (c == set[index])
+			return (1);
+		index++;
+	}
+	return (0);
 }
 
-int main()
+static int	search_index(int index, char const *s1, char const *set)
 {
-    char a[] = "1245ola1245";
-    printf("%s", ft_strtrim(a, "1245"));
+	while (is_set(s1[index], set) == 1)
+		index++;
+	return (index);
+}
+
+static int	search_length(int length, char const *s1, char const *set)
+{
+	while (is_set(s1[length], set) == 1)
+		length--;
+	return (length);
+}
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	int		index;
+	int		length;
+	int		temp;
+	int		count;
+	char	*ptr;
+
+	if (!s1 || !set)
+		return (NULL);
+	index = 0;
+	count = 0;
+	length = ft_strlen(s1) - 1;
+	index = search_index(index, s1, set);
+	length = search_length(length, s1, set);
+	while (index + count <= length)
+		count++;
+	ptr = malloc((count + 1) * sizeof(char));
+	if (!ptr)
+		return (0);
+	temp = -1;
+	while (temp++ < count - 1)
+		ptr[temp] = s1[index + temp];
+	ptr[temp] = '\0';
+	return (ptr);
 }

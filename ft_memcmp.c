@@ -1,21 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amaria-m <amaria-m@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/05 11:12:17 by amaria-m          #+#    #+#             */
+/*   Updated: 2021/11/05 11:12:17 by amaria-m         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int	memcmp(const void *s1, const void *s2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	i;
+	unsigned int	index;
+	unsigned char	*ptr1;
+	unsigned char	*ptr2;
 
-	i = 0;
-	while (((*(char *)(s1 + i)) || (*(char *)(s2 + i))) && (i < n))
+	ptr1 = (unsigned char *)s1;
+	ptr2 = (unsigned char *)s2;
+	index = 0;
+	while (index < n)
 	{
-		if ((*(char *)(s1 + i)) < (*(char *)(s2 + i)))
-		{
-			return (-1);
-		}
-		else if ((*(char *)(s1 + i)) > (*(char *)(s2 + i)))
-		{
-			return (1);
-		}
-		i++;
+		if (ptr1[index] != ptr2[index])
+			return (ptr1[index] - ptr2[index]);
+		index++;
 	}
 	return (0);
 }

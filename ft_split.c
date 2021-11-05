@@ -1,83 +1,92 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amaria-m <amaria-m@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/05 11:16:29 by amaria-m          #+#    #+#             */
+/*   Updated: 2021/11/05 12:31:10 by amaria-m         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int word_count(char const *s, char c)
+static int	ft_issep(char s, char c)
 {
-	int i;
-	int word_count;
+	return (s == c || s == '\0');
+}
+
+static int	countwords(char const *s, char c)
+{
+	int	index;
+	int	words;
+
+	index = 0;
+	words = 0;
+	while (s[index] != '\0')
+	{
+		if (ft_issep(s[index], c) == 0 && ft_issep(s[index + 1], c) == 1)
+			words++;
+		index++;
+	}
+	return (words);
+}
+
+static void	ft_cpywords(char *dest, char *src, char c)
+{
+	int	index;
+
+	index = 0;
+	while (ft_issep(src[index], c) == 0)
+	{
+		dest[index] = src[index];
+		index++;
+	}
+	dest[index] = '\0';
+}
+
+static void	do_the_split(char **matriz, char *s, char c)
+{
+	int		i;
+	int		j;
+	int		word;
+	char	*str;
 
 	i = 0;
-	word_count = 0;
-	while (s[i])
+	word = 0;
+	str = s;
+	while (s[i] != '\0')
 	{
-		if (s[i] != c)
-			word_count++;
-		while (s[i] != c && s[i])
+		if (ft_issep(s[i], c) == 1)
 			i++;
-		i++;
-	}
-	return (word_count);
-}
-
-void copy_word_to_str(char *str, char const *s, int *j, int *i)
-{
-	int k;
-
-	k = 0;
-	while (*j < *i)
-	{
-		str[k++] = s[*j];
-		*j += 1;
-	}
-	str[k] = 0;
-}
-
-char *malloc_str(char const *s, char c, int *j, int *i)
-{
-	char *str;
-
-	*i -= 1;
-	*j = *i;
-	while (s[*i] != c && s[*i])
-		*i += 1;
-	str = malloc(*i - *j + 1);
-	return (str);
-}
-
-char **ft_split(char const *s, char c)
-{
-	char **new_strs;
-	char *str;
-	int i;
-	int j;
-	int l;
-
-	new_strs = malloc(word_count(s, c) + 1);
-	if (!new_strs)
-		return (NULL);
-	i = 0;
-	l = 0;
-	while (s[i])
-		if (s[i++] != c)
+		else
 		{
-			str = malloc_str(s, c, &j, &i);
-			if (!str)
-				return (NULL);
-			copy_word_to_str(str, s, &j, &i);
-			new_strs[l++] = str;
+			j = 0;
+			while (ft_issep(str[i + j], c) == 0)
+				j++;
+			matriz[word] = malloc((j + 1) * sizeof(char));
+			if (!matriz[word])
+				return ;
+			ft_cpywords(matriz[word], str + i, c);
+			i += j;
+			word++;
 		}
-	new_strs[l] = NULL;
-	return (new_strs);
+	}
 }
 
-int main()
+char	**ft_split(char const *s, char c)
 {
-	char const *a = "ola-eu--sou-o-antonio";
-	char **b = ft_split(a, '-');
-	int i = 0;
-	while (b[i])
-	{
-		printf("%s\n", b[i]);
-		i++;
-	}
-	free(b);
+	char	**matriz;
+	int		words;
+
+	if (!s)
+		return (NULL);
+	words = countwords(s, c);
+	matriz = malloc((words + 1) * sizeof(char *));
+	if (!matriz)
+		return (NULL);
+	matriz[words] = NULL;
+	do_the_split(matriz, (char *)s, c);
+	return (matriz);
 }

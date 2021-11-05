@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amaria-m <amaria-m@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/05 11:17:38 by amaria-m          #+#    #+#             */
+/*   Updated: 2021/11/05 11:26:58 by amaria-m         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-char *ft_strdup(const char *s1)
+char	*ft_strdup(const char *s1)
 {
-	int s1_lenght;
-	char *str;
-	int i;
+	int		s1_lenght;
+	char	*str;
+	int		i;
 
 	s1_lenght = 0;
 	while (s1[s1_lenght])
@@ -21,9 +33,3 @@ char *ft_strdup(const char *s1)
 	str[i] = '\0';
 	return (str);
 }
-
-/*int main()
-{
-	const char str[] = "aaa";
-	printf("%s\n", ft_strdup(str));
-}*/

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amaria-m <amaria-m@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/05 11:09:14 by amaria-m          #+#    #+#             */
+/*   Updated: 2021/11/05 11:09:14 by amaria-m         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int	number_of_digits(long long nb)
@@ -30,13 +42,14 @@ void	pass_int_to_str(long long *nb, char *str, int *i)
 
 char	*ft_itoa(int n)
 {
-	char	*str;
+	char		*str;
 	long long	nb;
-	int	i;
+	int			i;
 
 	nb = n;
 	i = number_of_digits(nb);
-	if (!(str = malloc(i + 1)))
+	str = malloc(i + 1);
+	if (!str)
 		return (NULL);
 	str[i--] = 0;
 	if (nb < 0)

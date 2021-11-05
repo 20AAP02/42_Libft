@@ -1,28 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amaria-m <amaria-m@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/05 11:23:38 by amaria-m          #+#    #+#             */
+/*   Updated: 2021/11/05 11:23:38 by amaria-m         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-char *ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-    size_t i;
-    char *ptr;
+	char	*ptr;
+	size_t	index;
 
-    i = 0;
-    while (s[i])
-        i++;
-    if ((i - start) >= len)
-        ptr = malloc(len + 1);
-    else
-        ptr = malloc(i - start + 1);
-    if (!ptr)
-        return (NULL);
-    i = 0;
-    while (s[start] && i < len)
-        ptr[i++] = s[start++];
-    ptr[i] = 0;
-    return (ptr);
-}
-
-int main()
-{
-    char const a[] = "ola eu sou o antonio";
-    printf("%s", ft_substr(a, 13, 9));
+	if (!s)
+		return (NULL);
+	if (!len || ft_strlen(s) < start)
+		return (ft_strdup(""));
+	if (ft_strlen(s) - start > len)
+		ptr = (char *)malloc((len + 1) * sizeof(char));
+	else
+		ptr = (char *)malloc((ft_strlen(s) + 1) * sizeof(char));
+	if (!ptr)
+		return (NULL);
+	index = 0;
+	while (index < len && s[start + index])
+	{
+		ptr[index] = s[start + index];
+		index++;
+	}
+	ptr[index] = '\0';
+	return (ptr);
 }

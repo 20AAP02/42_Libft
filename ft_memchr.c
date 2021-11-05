@@ -1,15 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amaria-m <amaria-m@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/05 11:12:06 by amaria-m          #+#    #+#             */
+/*   Updated: 2021/11/05 11:12:06 by amaria-m         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t	i;
+	unsigned int	index;
+	unsigned char	*ptr;
 
-	i = 0;
-	while (i < n)
+	ptr = (unsigned char *)s;
+	index = 0;
+	while (index < n)
 	{
-		if (*(char *)(s + i) == c)
-			return ((char *)(s + i));
-		i++;
+		if (ptr[index] == (unsigned char)c)
+			return (ptr + index);
+		index++;
 	}
 	return (NULL);
 }

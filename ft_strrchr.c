@@ -1,23 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amaria-m <amaria-m@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/05 11:22:34 by amaria-m          #+#    #+#             */
+/*   Updated: 2021/11/05 11:22:34 by amaria-m         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-char *ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-    int i;
-    char *ptr;
+	int	len;
 
-    ptr = NULL;
-    i = 0;
-    while (s[i])
-    {
-        if (s[i] == c)
-            ptr = (char *)(s + i);
-        i++;
-    }
-    return (ptr);
+	len = ft_strlen(s);
+	while (len >= 0)
+	{
+		if (s[len] == (char)c)
+			return ((char *)s + len);
+		len--;
+	}
+	return (0);
 }
-
-/*int main()
-{
-    const char *c = "ntni";
-    printf("%s", ft_strrchr(c, 'o'));
-}*/
