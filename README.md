@@ -16,4 +16,9 @@ on the projects that followed, I have added other functions to this library even
 
 -----
 
+<h4>Subject</h4>
+https://github.com/20AAP02/42_Libft/blob/main/en.subject.pdf
+
+-----
+
 <h4>Grade : 125%</h4>
