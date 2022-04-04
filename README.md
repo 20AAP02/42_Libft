@@ -15,7 +15,18 @@ on the projects that followed, I have added other functions to this library even
 <p>- I learned how to build a c library</p>
 
 -----
-
+<style>
+  #score
+  {
+    display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+color: #fff;
+font-size: 1.7em;
+border-radius: 2px;
+  }
+</style>
 <h4>Score</h4>
 <div id="score">
   <div class="iconf-check-4 mt-4">
