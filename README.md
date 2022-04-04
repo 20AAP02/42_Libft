@@ -1,3 +1,2 @@
-42_Lift
+<h1 align="center"> Libft | 42 School Project </h1>
 
-C:\Users\anton\OneDrive\42_Libft
