@@ -13,3 +13,13 @@ on the projects that followed, I have added other functions to this library even
 <p>- I learned how to work with makefiles</p>
 <p>- I stated understanding linked lists and how to implement them</p>
 <p>- I learned how to build a c library</p>
+
+-----
+
+<h4>Score</h4>
+<div id="score">
+  <div class="iconf-check-4 mt-4">
+    success
+  </div>
+  <span>125</span>
+</div>
