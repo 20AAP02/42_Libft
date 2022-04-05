@@ -26,6 +26,6 @@ https://github.com/20AAP02/42_Libft/blob/main/en.subject.pdf
 <h6>Bonus : 25/25</h6>
 
 <h4>Create libray</h4>
-```
+```shell
 make
 ```
