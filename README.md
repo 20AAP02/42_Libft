@@ -27,5 +27,24 @@ https://github.com/20AAP02/42_Libft/blob/main/en.subject.pdf
 
 <h4>Create libray</h4>
 ```python
-make
+class antonio():
+    
+  def next_tools_to_learn(tools):
+    tools.append("flutter");
+    tools.append("react");
+    tools.append("swift");
+    tools.append("c++");
+  
+  def __init__(self):
+    self.name = "António Abranches Pinto";
+    self.username = "20AAP02";
+    self.location = "Lisbon, Portugal";
+    self.school = "42 Lisbon";
+    next_tools_to_learn(self.tools);
+  
+  def __str__(self):
+    return self.name
+
+if __name__ == '__main__':
+    me = antonio()
 ```
