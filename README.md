@@ -28,5 +28,7 @@ https://github.com/20AAP02/42_Libft/blob/main/en.subject.pdf
 <h4>Create libray</h4>
 
 ```
+git clone https://github.com/20AAP02/42_Libft.git libft
+cd libft
 make
 ```
