@@ -11,7 +11,7 @@ on the projects that followed, I have added other functions to this library even
 
 <h4>What I learned with this project?</h4>
 <p>- I learned how to work with makefiles</p>
-<p>- I stated understanding linked lists and how to implement them</p>
+<p>- I began understanding linked lists and how to implement them</p>
 <p>- I learned how to build a c library</p>
 
 -----
