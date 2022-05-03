@@ -5,7 +5,7 @@ standard functions. This project was about understanding the way these functions
 implementing and learning to use them.</p>
 <p>In this repo I only have the initial functions that we were supposed to make. However, when working
 on the projects that followed, I have added other functions to this library even thought they are not in this repo</p>
-<p>If you are interest to see this library with added functions, such as printf, go to this link -> </p>
+<p>If you are interest to see this library with added functions, such as printf, go to this link -> https://github.com/20AAP02/Libft</p>
 
 -----
 
